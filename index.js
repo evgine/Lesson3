@@ -41,9 +41,16 @@ app.get("/google", function(req, res){
 });
 app.get("/google/:search", function(req, res){
      var s = req.params.search;
-    res.redirect('google.com/search?q=' + s);
+    res.redirect('https://google.com/search?q=' + s);
    
 });
+// app.get("/*404/", function(req, res){
+//     res.send('404 error');
+// });
+
+app.get('*', function(req, res){
+    res.send('ERROR 404', 404);
+  });
 
 app.listen(3000, function(){
     console.log("Example is running on port 3000");
